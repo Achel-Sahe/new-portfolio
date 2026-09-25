@@ -1,0 +1,245 @@
+@import 'tailwindcss';
+
+:root {
+  font-family: 'DM Sans', sans-serif;
+  color: #17191b;
+  background: #eef0f1;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  background: #eef0f1;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+  background: #eef0f1;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  caret-color: #b96535;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #e6e8e9;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 3px solid #e6e8e9;
+  border-radius: 999px;
+  background: #b9bdc0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8d9296;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #b96535;
+  outline-offset: 3px;
+}
+
+::selection {
+  color: #17191b;
+  background: rgba(210, 128, 74, 0.34);
+}
+
+.grain-layer {
+  opacity: 0.18;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.11'/%3E%3C/svg%3E");
+  mix-blend-mode: multiply;
+}
+
+.site-header::after {
+  position: absolute;
+  right: 3rem;
+  bottom: 0;
+  left: 3rem;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(36, 40, 44, 0.1) 10%,
+    rgba(36, 40, 44, 0.1) 90%,
+    transparent
+  );
+  content: '';
+}
+
+.nav-link {
+  position: relative;
+  transition: color 180ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.nav-link:hover {
+  color: #17191b;
+}
+
+.nav-dot {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #c87543;
+  transform: translateX(-50%);
+}
+
+.product-popover {
+  transform-origin: top center;
+  animation: menu-in 160ms cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+
+.mobile-menu {
+  transform-origin: top center;
+  animation: menu-in 180ms cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+
+.hero-title {
+  text-wrap: nowrap;
+}
+
+.hero-portrait {
+  filter: drop-shadow(0 18px 38px rgba(14, 18, 23, 0.13));
+}
+
+.line-mask {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.14em;
+  margin-bottom: -0.14em;
+}
+
+.wordmark-backdrop {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.35);
+}
+
+.about-ghost {
+  -webkit-text-stroke: 1px rgba(23, 25, 27, 0.14);
+}
+
+.dock-center {
+  line-height: 1.2;
+}
+
+@keyframes menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-5px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (min-width: 1024px) and (min-height: 850px) {
+  .hero-stage {
+    min-height: calc(100svh - 76px);
+  }
+}
+
+@media (max-width: 767px) {
+  .site-header::after {
+    right: 1.25rem;
+    left: 1.25rem;
+  }
+
+  .hero-stage {
+    height: calc(100svh - 68px);
+    min-height: 610px;
+    padding-right: 1.25rem;
+    padding-left: 1.25rem;
+  }
+
+  .hero-copy {
+    top: 13%;
+    width: calc(100% - 2.5rem);
+  }
+
+  .hero-title {
+    font-size: clamp(2.55rem, 11vw, 4.5rem);
+    line-height: 0.87;
+  }
+
+  .hero-portrait {
+    height: 72%;
+    opacity: 0.95;
+  }
+
+  .wordmark-backdrop {
+    bottom: 14%;
+  }
+
+  .hero-side-note {
+    display: none;
+  }
+
+  .bottom-dock {
+    right: 1rem;
+    bottom: 1rem;
+    left: 1rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .hero-copy {
+    top: 12%;
+  }
+
+  .hero-title {
+    font-size: clamp(2.35rem, 10.6vw, 3rem);
+  }
+
+  .hero-copy .eyebrow {
+    margin-bottom: 1rem;
+  }
+
+  .hero-portrait {
+    height: 58%;
+  }
+
+  .bottom-dock {
+    grid-template-columns: 1fr auto;
+  }
+
+  .dock-center {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
