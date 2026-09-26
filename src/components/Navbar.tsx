@@ -1,5 +1,6 @@
 import { useLayoutEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Mail, Menu, X } from 'lucide-react'
 import { siInstagram } from 'simple-icons'
 import { EASE, STAGE } from '../lib/motion'
@@ -22,7 +23,9 @@ const socials: { label: string; path: string; href: string }[] = [
 
 function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
   const root = useRef<HTMLDivElement>(null)
+  const menuOpenRef = useRef(false)
 
   useLayoutEffect(() => {
     const scope = root.current
@@ -42,9 +45,73 @@ function Navbar() {
     return () => ctx.revert()
   }, [])
 
+  useLayoutEffect(() => {
+    const scope = root.current
+    if (!scope) return
+
+    const header = scope.querySelector('header')
+    if (!header) return
+
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    let lastY = window.scrollY
+    let hidden = false
+
+    const show = (immediate = false) => {
+      hidden = false
+      gsap.to(header, {
+        yPercent: 0,
+        duration: immediate ? 0 : 0.45,
+        ease: EASE,
+        overwrite: true,
+      })
+    }
+
+    const st = ScrollTrigger.create({
+      start: 0,
+      end: 'max',
+      onUpdate: (self) => {
+        const y = self.scroll()
+        const delta = y - lastY
+        lastY = y
+
+        setScrolled(y > 24)
+
+        if (reduced || menuOpenRef.current) return
+
+        if (delta > 4 && y > 140 && !hidden) {
+          hidden = true
+          gsap.to(header, { yPercent: -100, duration: 0.45, ease: EASE, overwrite: true })
+        } else if ((delta < -4 || y <= 140) && hidden) {
+          show()
+        }
+      },
+    })
+
+    return () => st.kill()
+  }, [])
+
+  const toggleMenu = () => {
+    const next = !mobileOpen
+    menuOpenRef.current = next
+    setMobileOpen(next)
+
+    if (next) {
+      const header = root.current?.querySelector('header')
+      if (header) gsap.set(header, { yPercent: 0 })
+    }
+  }
+
+  const closeMenu = () => {
+    menuOpenRef.current = false
+    setMobileOpen(false)
+  }
+
   return (
-    <div ref={root}>
-      <header className="site-header relative z-40 mx-auto flex h-[76px] w-full max-w-[1600px] items-center justify-between px-5 sm:px-8 lg:px-12">
+    <div ref={root} className="sticky top-0 z-40">
+      <header
+        data-scrolled={scrolled}
+        className="site-header relative mx-auto flex h-[76px] w-full max-w-[1600px] items-center justify-between px-5 sm:px-8 lg:px-12"
+      >
         <a
           href="#home"
           aria-label="Zenixa home"
@@ -96,7 +163,7 @@ function Navbar() {
           type="button"
           aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={mobileOpen}
-          onClick={() => setMobileOpen((open) => !open)}
+          onClick={toggleMenu}
           className="menu-toggle grid h-10 w-10 place-items-center rounded-full border border-black/10 bg-white/40 lg:hidden"
         >
           {mobileOpen ? <X size={17} /> : <Menu size={17} />}
@@ -112,7 +179,7 @@ function Navbar() {
             <a
               key={link.label}
               href={link.href}
-              onClick={() => setMobileOpen(false)}
+              onClick={closeMenu}
               className="rounded-xl px-4 py-3 text-sm text-[#42464a] hover:bg-black/[0.04]"
             >
               {link.label}
