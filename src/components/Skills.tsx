@@ -168,7 +168,7 @@ export default function Skills() {
 
       <div
         aria-hidden="true"
-        className="skills-ghost pointer-events-none absolute bottom-[8%] -right-[4%] z-0 select-none whitespace-nowrap text-[clamp(6rem,19vw,17rem)] font-semibold leading-[.7] tracking-[-.105em] text-black/2"
+        className=" pointer-events-none absolute top-[8%] -right-[4%] z-0 select-none whitespace-nowrap text-[clamp(6rem,19vw,17rem)] font-semibold leading-[.7] tracking-[-.105em] text-black/2"
       >
         STACK
       </div>
