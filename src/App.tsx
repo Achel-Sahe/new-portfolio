@@ -3,6 +3,7 @@ import gsap from 'gsap'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
+import Skills from './components/Skills'    
 import { EASE } from './lib/motion'
 
 function App() {
@@ -31,6 +32,8 @@ function App() {
       <Hero />
 
       <About />
+
+      <Skills />
     </main>
   )
 }

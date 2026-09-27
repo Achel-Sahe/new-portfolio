@@ -24,6 +24,7 @@ const socials: { label: string; path: string; href: string }[] = [
 function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [active, setActive] = useState('home')
   const root = useRef<HTMLDivElement>(null)
   const menuOpenRef = useRef(false)
 
@@ -90,6 +91,51 @@ function Navbar() {
     return () => st.kill()
   }, [])
 
+  useLayoutEffect(() => {
+    const sections = links
+      .map((link) => document.querySelector<HTMLElement>(link.href))
+      .filter((el): el is HTMLElement => Boolean(el))
+
+    if (!sections.length) return
+
+    let frame = 0
+
+    const measure = () => {
+      frame = 0
+
+      const line = window.innerHeight * 0.4
+      const atBottom =
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 2
+
+      let current = sections[0].id
+
+      if (atBottom) {
+        current = sections[sections.length - 1].id
+      } else {
+        for (const section of sections) {
+          if (section.getBoundingClientRect().top <= line) current = section.id
+        }
+      }
+
+      setActive((prev) => (prev === current ? prev : current))
+    }
+
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(measure)
+    }
+
+    measure()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    window.addEventListener('resize', onScroll)
+
+    return () => {
+      if (frame) cancelAnimationFrame(frame)
+      window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', onScroll)
+    }
+  }, [])
+
   const toggleMenu = () => {
     const next = !mobileOpen
     menuOpenRef.current = next
@@ -124,13 +170,15 @@ function Navbar() {
           aria-label="Main navigation"
           className="hidden items-center gap-7 text-[11px] font-medium tracking-[-0.02em] text-[#515459] lg:flex"
         >
-          <a href="#home" className="nav-link nav-current" aria-current="page">
-            Home
-            <span className="nav-dot" />
-          </a>
-          {links.slice(1).map((link) => (
-            <a key={link.label} href={link.href} className="nav-link">
+          {links.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              className="nav-link"
+              aria-current={active === link.href.slice(1) ? 'true' : undefined}
+            >
               {link.label}
+              <span className="nav-dot" />
             </a>
           ))}
         </nav>

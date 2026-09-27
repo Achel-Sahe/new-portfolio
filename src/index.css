@@ -125,7 +125,20 @@ a:focus-visible {
   height: 3px;
   border-radius: 50%;
   background: #c87543;
-  transform: translateX(-50%);
+  opacity: 0;
+  transform: translateX(-50%) scale(0.35);
+  transition:
+    opacity 200ms cubic-bezier(0.23, 1, 0.32, 1),
+    transform 340ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.nav-link[aria-current='true'] {
+  color: #17191b;
+}
+
+.nav-link[aria-current='true'] .nav-dot {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
 }
 
 .product-popover {
@@ -158,6 +171,10 @@ a:focus-visible {
 }
 
 .about-ghost {
+  -webkit-text-stroke: 1px rgba(152, 156, 159, 0.14);
+}
+
+.skills-ghost {
   -webkit-text-stroke: 1px rgba(152, 156, 159, 0.14);
 }
 
