@@ -180,11 +180,6 @@ export default function Skills() {
           </div>
 
           <div className="relative z-10">
-            <p className="skills-eyebrow mb-5 flex items-center gap-2 text-[11px] font-medium tracking-[0.015em] text-[#5e6368]">
-              <span aria-hidden="true" className="h-px w-5 bg-[#d58452]" />
-              Skills
-              <span className="text-[#666b70]">/ 02</span>
-            </p>
 
             <h2
               id="skills-heading"

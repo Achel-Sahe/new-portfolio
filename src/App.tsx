@@ -5,6 +5,7 @@ import Hero from './components/Hero'
 import About from './components/About'
 import Skills from './components/Skills'    
 import { EASE } from './lib/motion'
+import ProjectsSection from './components/Projects'
 
 function App() {
   const root = useRef<HTMLElement>(null)
@@ -26,14 +27,11 @@ function App() {
       className="relative isolate bg-[#eef0f1] text-[#17191b]"
     >
       <div className="grain-layer pointer-events-none absolute inset-0 z-0" />
-
       <Navbar />
-
       <Hero />
-
       <About />
-
       <Skills />
+      <ProjectsSection />
     </main>
   )
 }

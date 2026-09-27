@@ -178,6 +178,10 @@ a:focus-visible {
   -webkit-text-stroke: 1px rgba(152, 156, 159, 0.14);
 }
 
+.projects-ghost {
+  -webkit-text-stroke: 1px rgba(152, 156, 159, 0.14);
+}
+
 .about-photo {
   filter: grayscale(1) contrast(1.03) brightness(1.02);
   transition:
@@ -188,12 +192,6 @@ a:focus-visible {
 .about-figure:hover .about-photo {
   filter: grayscale(0.2) contrast(1.01) brightness(1);
   transform: scale(1.04);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .about-photo {
-    transition: none;
-  }
 }
 
 .dock-center {
