@@ -71,11 +71,11 @@ export default function Skills() {
       aria-labelledby="skills-heading"
       className="relative isolate overflow-hidden text-[#17191b]"
     >
-      <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-px bg-[linear-gradient(90deg,transparent,rgba(36,40,44,0.14)_12%,rgba(36,40,44,0.14)_88%,transparent)]" />
+      <div className="absolute inset-x-0 top-0 z-10 h-px pointer-events-none bg-[linear-gradient(90deg,transparent,rgba(36,40,44,0.14)_12%,rgba(36,40,44,0.14)_88%,transparent)]" />
 
       <div
         aria-hidden="true"
-        className=" pointer-events-none absolute top-[8%] -right-[4%] z-0 select-none whitespace-nowrap text-[clamp(6rem,19vw,17rem)] font-semibold leading-[.7] tracking-[-.105em] text-black/2"
+        className="absolute -right-[4%] top-[8%] z-0 pointer-events-none select-none whitespace-nowrap text-[clamp(6rem,19vw,17rem)] font-semibold leading-[.7] tracking-[-.105em] text-black/2"
       >
         STACK
       </div>
@@ -87,7 +87,6 @@ export default function Skills() {
           </div>
 
           <div className="relative z-10">
-
             <h2
               id="skills-heading"
               className="max-w-[680px] text-[clamp(2.9rem,7vw,6rem)] font-medium leading-[.92] tracking-[-.085em] text-[#202225]"
