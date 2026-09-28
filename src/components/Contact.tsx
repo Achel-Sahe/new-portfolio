@@ -2,7 +2,7 @@ import { useLayoutEffect, useRef, type SVGProps } from "react";
 import gsap from "gsap";
 
 import { EASE } from "../lib/motion";
-import { email as siteEmail, socials } from "../lib/site";
+import { email as siteEmail, mailto as buildMailto, socials } from "../lib/site";
 
 type ContactSectionProps = {
   email?: string;
@@ -46,7 +46,9 @@ export default function ContactSection({
 }: ContactSectionProps) {
   const root = useRef<HTMLElement>(null);
 
-  const mailto = `mailto:${email}?subject=${encodeURIComponent("Let's talk")}`;
+  const mailto = email === siteEmail
+    ? buildMailto()
+    : `mailto:${email}?subject=${encodeURIComponent('Hello from your portfolio')}`;
 
   const hrefOverride: Partial<Record<(typeof socials)[number]["key"], string>> = {
     instagram: instagramUrl,
