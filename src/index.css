@@ -222,9 +222,14 @@ a:focus-visible {
   }
 }
 
-@media (min-width: 1024px) and (min-height: 850px) {
+/* Desktop: pin the hero to exactly the space under the sticky header so one
+   scroll lands on the About section. The min-height floors on .hero-stage
+   exist for short phones, and they must not apply here. */
+@media (min-width: 1024px) {
   .hero-stage {
-    min-height: calc(100svh - 76px);
+    height: calc(100svh - 76px);
+    min-height: 0;
+    max-height: none;
   }
 }
 

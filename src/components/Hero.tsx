@@ -9,7 +9,7 @@ import {
 import type { SimpleIcon } from 'simple-icons'
 import portraitImage from '../assets/images/silhouette.png'
 import { EASE, STAGE } from '../lib/motion'
-import { mailto, stack } from '../lib/site'
+import { mailto, projects, stack, type Project } from '../lib/site'
 
 function StackMark({ icon }: { icon: SimpleIcon }) {
   return (
@@ -54,7 +54,7 @@ function ArrowPill({
   )
 }
 
-function Hero() {
+function Hero({ project = projects[0] }: { project?: Project }) {
   const root = useRef<HTMLElement>(null)
 
   useLayoutEffect(() => {
@@ -139,7 +139,7 @@ function Hero() {
       ref={root}
       className="hero-stage relative z-10 mx-auto h-[calc(100svh-76px)] min-h-[700px] max-h-[960px] w-full max-w-[1600px] overflow-hidden px-5 sm:min-h-[760px] sm:px-8 lg:px-12"
     >
-      <div className="hero-copy absolute left-5 top-[14%] z-20 w-[min(77vw,660px)] sm:left-8 sm:top-[16%] lg:left-12">
+      <div className="hero-copy absolute left-5 top-[14%] z-20 w-[min(77vw,660px)] sm:left-8 sm:top-[16%] lg:left-12 lg:top-[11%]">
         <div className="eyebrow mb-5 flex items-center gap-2 text-[11px] font-medium tracking-[0.015em] text-[#5e6368]">
           <span className="h-px w-5 bg-[#d58452]" />
           Hi, I'm Chelo Sahetapy
@@ -190,37 +190,44 @@ function Hero() {
         />
       </div>
 
-      <aside
+      <a
         id="studio-card"
-        className="studio-card absolute right-5 top-[16%] z-20 hidden w-[min(31vw,355px)] overflow-hidden rounded-[21px] border border-white/75 bg-[#e4e6e8]/80 p-[7px] shadow-[0_14px_35px_rgba(41,46,52,0.08)] backdrop-blur-md sm:block lg:right-12 lg:top-[17%]"
+        href="#projects"
+        aria-label={`View my projects (${projects.length})`}
+        className="studio-card group absolute right-5 top-[16%] z-20 hidden w-[min(31vw,355px)] overflow-hidden rounded-[21px] border border-white/75 bg-[#e4e6e8]/80 p-[7px] shadow-[0_14px_35px_rgba(41,46,52,0.08)] backdrop-blur-md transition-shadow duration-200 hover:shadow-[0_18px_42px_rgba(41,46,52,0.14)] sm:block lg:right-12 lg:top-[12%]"
       >
         <div className="flex items-stretch gap-4">
           <div className="studio-mark relative grid aspect-square w-[39%] shrink-0 place-items-center overflow-hidden rounded-[15px] bg-[#090a0c] text-white">
             <span className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_85%,rgba(255,255,255,0.08),transparent_58%)]" />
-            <svg aria-hidden="true" viewBox="0 0 42 42" className="relative h-8 w-8">
-              <path d="M8 9h17l9 9v15H8z" fill="currentColor" />
-              <path d="M8 17h17M17 9v9M25 17v16" stroke="#0b0c0e" strokeWidth="1.8" />
-              <circle cx="31" cy="10" r="3" fill="#e6a077" />
+            <svg aria-hidden="true" viewBox="0 0 42 42" className="relative h-8 w-8" fill="none">
+              <rect x="7" y="7" width="12" height="12" rx="2" stroke="currentColor" strokeWidth="1.8" />
+              <rect x="23" y="7" width="12" height="12" rx="2" stroke="currentColor" strokeWidth="1.8" opacity="0.45" />
+              <rect x="7" y="23" width="12" height="12" rx="2" stroke="currentColor" strokeWidth="1.8" opacity="0.45" />
+              <rect x="23" y="23" width="12" height="12" rx="2" fill="currentColor" />
             </svg>
           </div>
           <div className="flex min-w-0 flex-1 flex-col justify-between py-4 pr-3">
             <span className="self-end rounded-full border border-black/10 px-2 py-1 text-[8px] uppercase tracking-[0.16em] text-[#64696e]">
-              01 / 04
+              {String(projects.length).padStart(2, '0')} projects
             </span>
             <div>
-              <p className="text-[clamp(1rem,1.6vw,1.35rem)] font-medium leading-[1.1] tracking-[-0.06em] text-[#51555a]">
-                View
-                <br />
-                My Projects
+              <p className="truncate text-[clamp(1rem,1.6vw,1.35rem)] font-medium leading-[1.1] tracking-[-0.06em] text-[#51555a]">
+                {project.title}
+              </p>
+              <p className="mt-1.5 line-clamp-2 text-[10px] leading-[1.5] text-[#787d82]">
+                {project.desc}
               </p>
               <div className="mt-4 flex items-center justify-between">
-                <span className="h-px w-10 bg-[#777c81]" />
-                <ArrowRight size={14} className="text-[#777c81]" />
+                <span className="h-px w-10 bg-[#777c81] transition-all duration-200 group-hover:w-14" />
+                <ArrowRight
+                  size={14}
+                  className="text-[#777c81] transition-transform duration-200 group-hover:translate-x-0.5"
+                />
               </div>
             </div>
           </div>
         </div>
-      </aside>
+      </a>
 
       <div
         id="partner-logos"
