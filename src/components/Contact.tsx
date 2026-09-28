@@ -121,7 +121,7 @@ export default function ContactSection({
               Contact Section
             </span>
           </div>
-        </header>   
+        </header>
 
         <div className="grid items-center lg:grid-cols-[41%_59%]">
           <div className="relative z-10 pl-2">
@@ -153,14 +153,14 @@ export default function ContactSection({
 
             <div className="contact-ring absolute right-[6%] top-[46px] h-[170px] w-[170px] rounded-full border border-black/60 after:absolute after:inset-[9px] after:rounded-full after:border after:border-black/30 sm:right-[12%] sm:top-[74px] sm:h-[350px] sm:w-[350px] sm:after:inset-[18px]" />
 
-            <div className="contact-slug absolute right-[4%] top-[116px] h-[150px] w-[76px] origin-bottom-right bg-[#b8795d] after:absolute after:bottom-3 after:left-[15px] after:font-serif after:text-[21px] after:text-[#f4f4f2] after:content-['04'] sm:right-[11%] sm:top-[196px] sm:h-[248px] sm:w-[126px] sm:after:bottom-6 sm:after:left-[25px] sm:after:text-[34px]" />
+            <div className="contact-slug absolute right-[4%] top-[116px] h-[150px] w-[76px] origin-bottom-right after:absolute after:bottom-3 after:left-[15px] after:font-serif after:text-[21px] after:text-[#f4f4f2] after:content-['04'] bg-[#b8795d] sm:right-[11%] sm:top-[196px] sm:h-[248px] sm:w-[126px] sm:after:bottom-6 sm:after:left-[25px] sm:after:text-[34px]" />
 
             <div className="contact-flap absolute right-[4%] top-[100px] h-[400px] w-[92%] overflow-hidden border border-[#141414] bg-[#eef0f1]/40 sm:right-[5%] sm:top-[150px] sm:h-[560px]">
               <span className="absolute left-0 top-[130px] h-px w-[55%] origin-left rotate-[31deg] bg-[#141414] sm:top-[185px]" />
               <span className="absolute right-0 top-[130px] h-px w-[55%] origin-right -rotate-[31deg] bg-[#141414] sm:top-[185px]" />
             </div>
 
-            <div className="contact-card absolute right-[6%] top-[190px] z-10 h-[320px] w-[88%] border border-black/40 bg-[#f4f4f2] p-[20px_22px] shadow-[10px_10px_0_#b8795d] sm:right-[17%] sm:top-[280px] sm:h-[430px] sm:w-[72%] sm:p-[38px_42px] sm:shadow-[18px_18px_0_#b8795d]">
+            <div className="contact-card absolute right-[6%] top-[190px] z-10 h-[320px] w-[88%] border border-black/40 p-[20px_22px] shadow-[10px_10px_0_#b8795d] bg-[#f4f4f2] sm:right-[17%] sm:top-[280px] sm:h-[430px] sm:w-[72%] sm:p-[38px_42px] sm:shadow-[18px_18px_0_#b8795d]">
               <div className="flex items-start justify-between text-[10px] uppercase tracking-[0.22em] sm:text-[13px]">
                 <span>To / Chelo</span>
                 <Stamp />
