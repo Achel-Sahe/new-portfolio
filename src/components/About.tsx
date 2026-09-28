@@ -152,11 +152,11 @@ function About() {
       aria-labelledby="about-heading"
       className="relative isolate overflow-hidden text-[#17191b]"
     >
-      <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-px bg-[linear-gradient(90deg,transparent,rgba(36,40,44,0.14)_12%,rgba(36,40,44,0.14)_88%,transparent)]" />
+      <div className="absolute inset-x-0 top-0 z-10 h-px pointer-events-none bg-[linear-gradient(90deg,transparent,rgba(36,40,44,0.14)_12%,rgba(36,40,44,0.14)_88%,transparent)]" />
 
       <div
         aria-hidden="true"
-        className="about-ghost pointer-events-none absolute bottom-[15%] -right-[4%] z-0 select-none whitespace-nowrap text-[clamp(6rem,19vw,17rem)] font-semibold leading-[.7] tracking-[-.105em] text-black/2"
+        className="about-ghost absolute -right-[4%] bottom-[15%] z-0 pointer-events-none select-none whitespace-nowrap text-[clamp(6rem,19vw,17rem)] font-semibold leading-[.7] tracking-[-.105em] text-black/2"
       >
         ABOUT
       </div>
@@ -165,7 +165,7 @@ function About() {
         <div className="grid lg:grid-cols-[52px_minmax(0,1fr)] lg:gap-x-12">
           <div className="about-rail relative hidden lg:block">
             <span className="absolute inset-y-0 left-0 w-px bg-[linear-gradient(180deg,transparent,rgba(36,40,44,0.16)_16%,rgba(36,40,44,0.16)_84%,transparent)]" />
-            <span className="absolute left-[19px] top-1 flex items-center gap-3 [writing-mode:vertical-rl] rotate-180 text-[9px] font-medium uppercase tracking-[.24em] text-[#62676b]">
+            <span className="absolute left-[19px] top-1 flex rotate-180 items-center gap-3 text-[9px] font-medium uppercase tracking-[.24em] text-[#62676b] [writing-mode:vertical-rl]">
               Frontend Developer ·
               <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#d58452]" />
             </span>
