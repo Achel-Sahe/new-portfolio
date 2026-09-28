@@ -169,7 +169,7 @@ function Hero({ project = projects[0] }: { project?: Project }) {
           <ArrowPill href={mailto("Let's make something")}>
             Let's Talk
           </ArrowPill>
-          <ArrowPill href="#partner-logos" muted>
+          <ArrowPill href="#skills" muted>
             My Skills
           </ArrowPill>
         </div>
