@@ -206,7 +206,7 @@ function Navbar() {
       {mobileOpen && (
         <nav
           aria-label="Mobile navigation"
-          className="mobile-menu absolute left-4 right-4 top-[68px] z-50 grid gap-1 rounded-2xl border border-black/[0.08] bg-[#f7f8f8]/95 p-3 shadow-xl backdrop-blur-xl lg:hidden"
+          className="mobile-menu absolute left-4 right-4 top-[68px] z-50 grid gap-1 rounded-2xl border border-black/[0.08] p-3 shadow-xl backdrop-blur-xl bg-[#f7f8f8]/95 lg:hidden"
         >
           {links.map((link) => (
             <a
