@@ -3,7 +3,7 @@ import gsap from 'gsap'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
-import Skills from './components/Skills'    
+import Skills from './components/Skills'
 import { EASE } from './lib/motion'
 import ProjectsSection from './components/Projects'
 import ContactSection from './components/Contact'
@@ -27,13 +27,13 @@ function App() {
       ref={root}
       className="relative isolate bg-[#eef0f1] text-[#17191b]"
     >
-      <div className="grain-layer pointer-events-none absolute inset-0 z-0" />
+      <div className="grain-layer absolute inset-0 z-0 pointer-events-none" />
       <Navbar />
       <Hero />
       <About />
       <Skills />
       <ProjectsSection />
-      <ContactSection/>
+      <ContactSection />
     </main>
   )
 }
