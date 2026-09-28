@@ -1,110 +1,17 @@
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { EASE } from "../lib/motion";
+import { stack } from "../lib/site";
 
-type SkillKind =
-  | "javascript"
-  | "typescript"
-  | "tailwind"
-  | "react"
-  | "nextjs"
-  | "github";
-
-type Skill = {
-  name: string;
-  kind: SkillKind;
-};
-
-const skills: Skill[] = [
-  { name: "JavaScript", kind: "javascript" },
-  { name: "TypeScript", kind: "typescript" },
-  { name: "Tailwind CSS", kind: "tailwind" },
-  { name: "React.js", kind: "react" },
-  { name: "Next.js", kind: "nextjs" },
-  { name: "GitHub", kind: "github" },
-];
-
-function SkillMark({ kind }: { kind: SkillKind }) {
-  if (kind === "javascript" || kind === "typescript") {
-    return (
-      <span
-        aria-hidden="true"
-        className="grid h-10 w-10 shrink-0 place-items-end rounded-[9px] bg-[#111] p-1 text-[15px] font-bold leading-none tracking-[-0.06em] text-white sm:h-[60px] sm:w-[60px] sm:text-[23px]"
-      >
-        {kind === "javascript" ? "JS" : "TS"}
-      </span>
-    );
-  }
-
-  if (kind === "tailwind") {
-    return (
-      <svg
-        aria-hidden="true"
-        viewBox="0 0 48 32"
-        fill="currentColor"
-        className="h-8 w-11 shrink-0 sm:h-12 sm:w-16"
-      >
-        <path d="M24 0C17.6 0 13.6 3.2 12 9.6c2.4-3.2 5.2-4.4 8.4-3.6 1.83.46 3.14 1.8 4.58 3.27C27.32 11.67 30.03 14.4 36 14.4c6.4 0 10.4-3.2 12-9.6-2.4 3.2-5.2 4.4-8.4 3.6-1.83-.46-3.14-1.8-4.58-3.27C32.68 2.73 29.97 0 24 0ZM12 17.6C5.6 17.6 1.6 20.8 0 27.2c2.4-3.2 5.2-4.4 8.4-3.6 1.83.46 3.14 1.8 4.58 3.27C15.32 29.27 18.03 32 24 32c6.4 0 10.4-3.2 12-9.6-2.4 3.2-5.2 4.4-8.4 3.6-1.83-.46-3.14-1.8-4.58-3.27C20.68 20.33 17.97 17.6 12 17.6Z" />
-      </svg>
-    );
-  }
-
-  if (kind === "react") {
-    return (
-      <svg
-        aria-hidden="true"
-        viewBox="0 0 48 48"
-        fill="none"
-        className="h-10 w-10 shrink-0 sm:h-[60px] sm:w-[60px]"
-      >
-        <g stroke="currentColor" strokeWidth="1.8">
-          <ellipse cx="24" cy="24" rx="21" ry="8.5" />
-          <ellipse
-            cx="24"
-            cy="24"
-            rx="21"
-            ry="8.5"
-            transform="rotate(60 24 24)"
-          />
-          <ellipse
-            cx="24"
-            cy="24"
-            rx="21"
-            ry="8.5"
-            transform="rotate(120 24 24)"
-          />
-        </g>
-        <circle cx="24" cy="24" r="3.2" fill="currentColor" />
-      </svg>
-    );
-  }
-
-  if (kind === "nextjs") {
-    return (
-      <svg
-        aria-hidden="true"
-        viewBox="0 0 48 48"
-        fill="none"
-        className="h-10 w-10 shrink-0 sm:h-[60px] sm:w-[60px]"
-      >
-        <path d="M11 39V9l26 30V9" stroke="currentColor" strokeWidth="2.2" />
-        <path
-          d="m27.5 28.2 11.7 13.6"
-          stroke="currentColor"
-          strokeWidth="1.8"
-        />
-      </svg>
-    );
-  }
-
+function SkillMark({ path, title }: { path: string; title: string }) {
   return (
     <svg
-      aria-hidden="true"
-      viewBox="0 0 48 48"
-      fill="currentColor"
-      className="h-10 w-10 shrink-0 sm:h-[60px] sm:w-[60px]"
+      role="img"
+      aria-label={title}
+      viewBox="0 0 24 24"
+      className="h-9 w-9 shrink-0 sm:h-11 sm:w-11"
     >
-      <path d="M24 .9a23.1 23.1 0 0 0-7.3 45c1.15.21 1.58-.5 1.58-1.1v-4.3c-6.43 1.4-7.79-2.73-7.79-2.73-1.05-2.67-2.57-3.38-2.57-3.38-2.1-1.44.16-1.41.16-1.41 2.32.16 3.54 2.38 3.54 2.38 2.06 3.53 5.4 2.51 6.71 1.92.21-1.49.81-2.51 1.47-3.09-5.13-.58-10.52-2.57-10.52-11.43 0-2.53.9-4.59 2.38-6.21-.24-.58-1.03-2.93.23-6.11 0 0 1.94-.62 6.35 2.37a22.1 22.1 0 0 1 11.56 0c4.41-2.99 6.35-2.37 6.35-2.37 1.26 3.18.47 5.53.23 6.11 1.48 1.62 2.37 3.68 2.37 6.21 0 8.88-5.4 10.84-10.55 11.41.83.72 1.57 2.12 1.57 4.27v6.36c0 .61.42 1.32 1.59 1.1A23.1 23.1 0 0 0 24 .9Z" />
+      <path d={path} fill="currentColor" />
     </svg>
   );
 }
@@ -206,11 +113,11 @@ export default function Skills() {
               aria-label="Technologies and tools"
               className="grid grid-cols-2 gap-3 sm:gap-5 xl:grid-cols-3 xl:gap-7"
             >
-              {skills.map((skill) => (
-                <li key={skill.kind}>
+              {stack.map((skill) => (
+                <li key={skill.name}>
                   <div className="skills-card group flex min-h-[128px] flex-col items-start justify-center gap-3 rounded-[18px] border border-black/[0.12] bg-white/25 px-4 py-5 transition-[background-color,border-color] duration-300 ease-out hover:border-black/20 hover:bg-white/45 sm:min-h-[148px] sm:flex-row sm:items-center sm:gap-8 sm:px-8 sm:py-6">
-                    <span className="shrink-0 transition-opacity duration-300 ease-out group-hover:opacity-70">
-                      <SkillMark kind={skill.kind} />
+                    <span className="shrink-0 text-[#3c4045] transition-opacity duration-300 ease-out group-hover:opacity-70">
+                      <SkillMark path={skill.icon.path} title={skill.icon.title} />
                     </span>
                     <span className="text-[15px] font-medium leading-[1.2] tracking-[-0.035em] transition-colors duration-300 ease-out group-hover:text-[#202225] sm:text-xl">
                       {skill.name}

@@ -1,9 +1,9 @@
 import { useLayoutEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { Mail, Menu, X } from 'lucide-react'
-import { siInstagram } from 'simple-icons'
+import { Menu, X } from 'lucide-react'
 import { EASE, STAGE } from '../lib/motion'
+import { socials } from '../lib/site'
 
 const links = [
   { label: 'Home', href: '#home' },
@@ -11,14 +11,6 @@ const links = [
   { label: 'Skills', href: '#skills' },
   { label: 'Projects', href: '#projects' }, 
   { label: 'Contact', href: '#contact' },
-]
-
-const linkedinPath =
-  'M6 1.5h12A4.5 4.5 0 0 1 22.5 6v12a4.5 4.5 0 0 1-4.5 4.5H6A4.5 4.5 0 0 1 1.5 18V6A4.5 4.5 0 0 1 6 1.5zM8.55 6.95a1.6 1.6 0 1 1-3.2 0 1.6 1.6 0 0 1 3.2 0zM5.4 9.8h2.5v9.7H5.4zM10.1 9.8h2.4v1.3h.05a3.2 3.2 0 0 1 5.55 2.05v5.35h-2.5v-4.75a1.35 1.35 0 0 0-2.7 0v4.75h-2.5z'
-
-const socials: { label: string; path: string; href: string }[] = [
-  { label: 'Instagram', path: siInstagram.path, href: '#' },
-  { label: 'LinkedIn', path: linkedinPath, href: '#' },
 ]
 
 function Navbar() {
@@ -184,13 +176,13 @@ function Navbar() {
         </nav>
 
         <div className="hidden items-center gap-3 md:flex">
-          {socials.map((social) => (
+          {socials.filter((social) => social.primary).map((social) => (
             <a
-              key={social.label}
+              key={social.key}
               href={social.href}
               aria-label={social.label}
-              target="_blank"
-              rel="noreferrer"
+              target={social.external ? '_blank' : undefined}
+              rel={social.external ? 'noreferrer' : undefined}
               className="social-link grid h-[36px] w-[36px] place-items-center rounded-lg border border-black/[0.09] bg-white/30 text-[#313438] transition-colors hover:bg-white/70"
             >
               <svg viewBox="0 0 24 24" className="h-[15px] w-[15px]" aria-hidden="true">
@@ -198,13 +190,6 @@ function Navbar() {
               </svg>
             </a>
           ))}
-          <a
-            href="mailto:hello@zenixa.studio"
-            aria-label="Email"
-            className="social-link grid h-[36px] w-[36px] place-items-center rounded-lg border border-black/[0.09] bg-white/30 text-[#313438] transition-colors hover:bg-white/70"
-          >
-            <Mail size={15} strokeWidth={1.6} />
-          </a>
         </div>
 
         <button

@@ -6,6 +6,7 @@ import About from './components/About'
 import Skills from './components/Skills'    
 import { EASE } from './lib/motion'
 import ProjectsSection from './components/Projects'
+import ContactSection from './components/Contact'
 
 function App() {
   const root = useRef<HTMLElement>(null)
@@ -32,6 +33,7 @@ function App() {
       <About />
       <Skills />
       <ProjectsSection />
+      <ContactSection/>
     </main>
   )
 }

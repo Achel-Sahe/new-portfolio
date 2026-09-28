@@ -1,5 +1,9 @@
 @import 'tailwindcss';
 
+@theme {
+  --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+}
+
 :root {
   font-family: 'DM Sans', sans-serif;
   color: #17191b;
@@ -164,6 +168,14 @@ a:focus-visible {
   overflow: hidden;
   padding-bottom: 0.14em;
   margin-bottom: -0.14em;
+}
+
+/* Newsreader's ascenders are taller than the sans headings, so the serif
+   display lines need extra top headroom or the caps get clipped. The
+   negative margin keeps the line positions unchanged. */
+.contact-line {
+  padding-top: 0.24em;
+  margin-top: -0.24em;
 }
 
 .wordmark-backdrop {

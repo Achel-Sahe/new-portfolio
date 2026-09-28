@@ -6,26 +6,10 @@ import {
   ArrowUpRight,
   MapPin,
 } from 'lucide-react'
-import {
-  siGithub,
-  siJavascript,
-  siNextdotjs,
-  siReact,
-  siTailwindcss,
-  siTypescript,
-  type SimpleIcon,
-} from 'simple-icons'
+import type { SimpleIcon } from 'simple-icons'
 import portraitImage from '../assets/images/silhouette.png'
 import { EASE, STAGE } from '../lib/motion'
-
-const stack: { icon: SimpleIcon; name: string }[] = [
-  { icon: siJavascript, name: 'JavaScript' },
-  { icon: siTypescript, name: 'TypeScript' },
-  { icon: siTailwindcss, name: 'Tailwind CSS' },
-  { icon: siReact, name: 'React.JS' },
-  { icon: siNextdotjs, name: 'Next.JS' },
-  { icon: siGithub, name: 'GitHub' },
-]
+import { mailto, stack } from '../lib/site'
 
 function StackMark({ icon }: { icon: SimpleIcon }) {
   return (
@@ -182,7 +166,7 @@ function Hero() {
           </span>
         </div>
         <div className="hero-actions mt-8 flex items-center gap-2.5 sm:mt-9">
-          <ArrowPill href="mailto:hello@zenixa.studio?subject=Let%27s%20make%20something">
+          <ArrowPill href={mailto("Let's make something")}>
             Let's Talk
           </ArrowPill>
           <ArrowPill href="#partner-logos" muted>
