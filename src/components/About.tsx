@@ -3,8 +3,8 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowUpRight } from "lucide-react";
 import { EASE } from "../lib/motion";
-import img1 from "../assets/images/second.jpeg";
-import img2 from "../assets/images/third.jpeg";
+import img1 from "../assets/images/second.webp";
+import img2 from "../assets/images/third.webp";
 
 const ROTATE_MS = 3000;
 const REVEAL = 1.15;

@@ -11,11 +11,11 @@ import {
   siWhatsapp,
 } from 'simple-icons'
 
-import Bokurce from '../assets/images/projects/bokurce.png'
-import FootballApi from '../assets/images/projects/football-api.png'
-import GPMtuhaha from '../assets/images/projects/gpm-tuhaha.png'
-import smp28malteng from '../assets/images/projects/smp28malteng.png'
-import NegeriTuhaha from '../assets/images/projects/tuhaha.png'
+import Bokurce from '../assets/images/projects/bokurce.webp'
+import FootballApi from '../assets/images/projects/football-api.webp'
+import GPMtuhaha from '../assets/images/projects/gpm-tuhaha.webp'
+import smp28malteng from '../assets/images/projects/smp28malteng.webp'
+import NegeriTuhaha from '../assets/images/projects/tuhaha.webp'
 
 /**
  * Single source of truth for portfolio content.

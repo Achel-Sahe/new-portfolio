@@ -7,7 +7,7 @@ import {
   MapPin,
 } from 'lucide-react'
 import type { SimpleIcon } from 'simple-icons'
-import portraitImage from '../assets/images/silhouette.png'
+import portraitImage from '../assets/images/silhouette.webp'
 import { EASE, STAGE } from '../lib/motion'
 import { mailto, projects, stack, type Project } from '../lib/site'
 
