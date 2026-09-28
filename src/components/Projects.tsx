@@ -230,7 +230,6 @@ export default function ProjectsSection({
       className="relative isolate overflow-hidden px-6 py-24 text-[#111] sm:px-10 sm:py-28 lg:px-16 lg:py-32"
     >
       <div className="mx-auto max-w-[1440px]">
-
         <div className="grid items-center gap-12 lg:grid-cols-[0.72fr_1.55fr] lg:gap-14 xl:gap-20">
           <div className="relative z-10">
             <h2
@@ -307,7 +306,7 @@ export default function ProjectsSection({
             </div>
 
             {projectList.length > 1 && (
-              <div className="projects-next absolute right-0 top-[13%] hidden h-[72%] w-[17%] overflow-hidden bg-[#e1dfd9] shadow-[0_14px_40px_rgba(0,0,0,0.09)] sm:block">
+              <div className="projects-next absolute right-0 top-[13%] hidden h-[72%] w-[17%] overflow-hidden shadow-[0_14px_40px_rgba(0,0,0,0.09)] bg-[#e1dfd9] sm:block">
                 <div className="group relative h-full w-full overflow-hidden">
                   <ProjectArtwork project={nextProject} />
                 </div>
@@ -330,7 +329,7 @@ export default function ProjectsSection({
                       setDirection(index >= safeIndex ? 1 : -1);
                       setActiveIndex(index);
                     }}
-                    className="projects-tab group flex min-w-0 flex-1 flex-col items-start gap-3 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b8795d] focus-visible:ring-offset-4 focus-visible:ring-offset-[#eef0f1] cursor-pointer"
+                    className="projects-tab group flex min-w-0 flex-1 cursor-pointer flex-col items-start gap-3 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b8795d] focus-visible:ring-offset-4 focus-visible:ring-offset-[#eef0f1]"
                   >
                     <span
                       className={`text-xs tabular-nums transition-colors ${
@@ -343,12 +342,12 @@ export default function ProjectsSection({
                     </span>
                     <span className="relative h-[2px] w-full bg-black/10">
                       <span
-                        className={`absolute inset-y-0 left-0 bg-[#111]  transition-all duration-300 ${
-                          isActive ? "w-full" : "w-0 group-hover:w-1/3 "
+                        className={`absolute inset-y-0 left-0 transition-all duration-300 bg-[#111] ${
+                          isActive ? "w-full" : "w-0 group-hover:w-1/3"
                         }`}
                       />
                       {isActive && (
-                        <span className="absolute -top-[3px] left-0 h-2 w-2 rounded-full bg-[#b8795d] " />
+                        <span className="absolute -top-[3px] left-0 h-2 w-2 rounded-full bg-[#b8795d]" />
                       )}
                     </span>
                   </button>
@@ -360,7 +359,7 @@ export default function ProjectsSection({
 
         <span
           aria-hidden="true"
-          className="projects-ghost pointer-events-none absolute -bottom-[0.2em] left-[2%] -z-10 select-none text-[clamp(16rem,38vw,40rem)] font-semibold leading-none tracking-[-0.1em] text-black/[0.025]"
+          className="projects-ghost absolute -bottom-[0.2em] left-[2%] -z-10 pointer-events-none select-none text-[clamp(16rem,38vw,40rem)] font-semibold leading-none tracking-[-0.1em] text-black/[0.025]"
         >
           {String(safeIndex + 1).padStart(2, "0")}
         </span>
