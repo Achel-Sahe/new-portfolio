@@ -175,12 +175,12 @@ function Hero({ project = projects[0] }: { project?: Project }) {
         </div>
       </div>
 
-      <div className="wordmark-backdrop pointer-events-none absolute bottom-[7%] left-1/2 z-[1] -translate-x-1/2 whitespace-nowrap text-[clamp(7rem,22vw,21rem)] font-semibold leading-[0.7] tracking-[-0.105em] text-black/5">
+      <div className="wordmark-backdrop absolute bottom-[7%] left-1/2 z-[1] -translate-x-1/2 pointer-events-none whitespace-nowrap text-[clamp(7rem,22vw,21rem)] font-semibold leading-[0.7] tracking-[-0.105em] text-black/5">
         FRONTEND
       </div>
 
       <div
-        className="portrait-wrap pointer-events-none absolute inset-x-0 bottom-[-1px] z-10 flex h-[96%] items-end justify-center"
+        className="portrait-wrap absolute inset-x-0 bottom-[-1px] z-10 flex h-[96%] pointer-events-none items-end justify-center"
         aria-hidden="true"
       >
         <img
@@ -194,7 +194,7 @@ function Hero({ project = projects[0] }: { project?: Project }) {
         id="studio-card"
         href="#projects"
         aria-label={`View my projects (${projects.length})`}
-        className="studio-card group absolute right-5 top-[16%] z-20 hidden w-[min(31vw,355px)] overflow-hidden rounded-[21px] border border-white/75 bg-[#e4e6e8]/80 p-[7px] shadow-[0_14px_35px_rgba(41,46,52,0.08)] backdrop-blur-md transition-shadow duration-200 hover:shadow-[0_18px_42px_rgba(41,46,52,0.14)] sm:block lg:right-12 lg:top-[12%]"
+        className="studio-card group absolute right-5 top-[16%] z-20 hidden w-[min(31vw,355px)] overflow-hidden rounded-[21px] border border-white/75 p-[7px] shadow-[0_14px_35px_rgba(41,46,52,0.08)] backdrop-blur-md transition-shadow duration-200 bg-[#e4e6e8]/80 hover:shadow-[0_18px_42px_rgba(41,46,52,0.14)] sm:block lg:right-12 lg:top-[12%]"
       >
         <div className="flex items-stretch gap-4">
           <div className="studio-mark relative grid aspect-square w-[39%] shrink-0 place-items-center overflow-hidden rounded-[15px] bg-[#090a0c] text-white">
